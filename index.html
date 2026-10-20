@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Let's Learn | Learn Today, Succeed Tomorrow</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7ff;
+  color: #20253a;
+}
+
+header {
+  background: #1746a2;
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 35px;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+nav {
+  background: #103579;
+  padding: 14px 8px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 9px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffca45;
+}
+
+.hero {
+  background: white;
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 30px;
+  color: #1746a2;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+.button {
+  display: inline-block;
+  background: #ffbf24;
+  color: #20253a;
+  padding: 13px 22px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 30px 16px;
+}
+
+.section-title {
+  text-align: center;
+  color: #1746a2;
+  margin-bottom: 25px;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(145px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  padding: 20px 14px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #00000010;
+}
+
+.subject-card {
+  text-align: center;
+}
+
+.subject-card .icon {
+  font-size: 35px;
+}
+
+.card h3 {
+  color: #1746a2;
+}
+
+.card p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.search {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #bbc5da;
+  border-radius: 8px;
+}
+
+.lesson {
+  margin-bottom: 15px;
+}
+
+.lesson summary {
+  color: #1746a2;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 12px 0;
+}
+
+.lesson p {
+  line-height: 1.8;
+}
+
+.quiz-box {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.quiz-question {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e5ef;
+}
+
+.quiz-question label {
+  display: block;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.resources {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+footer {
+  background: #103579;
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer a {
+  color: #ffca45;
+}
+
+@media (max-width: 450px) {
+  header h1 {
+    font-size: 29px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 13px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Let's Learn</h1>
+  <p>Learn Today, Succeed Tomorrow!</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#subjects">Subjects</a>
+  <a href="#notes">Study Notes</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#resources">Resources</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Welcome to Let's Learn!</h2>
+
+  <p>
+    Your learning journey starts here.
+    Explore subjects, understand difficult topics,
+    practise questions and build your confidence.
+    Learning becomes easier when we learn together!
+  </p>
+
+  <a class="button" href="#subjects">
+    Start Learning
+  </a>
+</section>
+
+<section class="container" id="subjects">
+  <h2 class="section-title">Explore Our Subjects</h2>
+
+  <input
+    class="search"
+    id="subjectSearch"
+    type="search"
+    placeholder="Search for a subject..."
+    oninput="searchSubjects()"
+    aria-label="Search subjects"
+  >
+
+  <div class="subjects" id="subjectList">
+
+    <div class="card subject-card">
+      <div class="icon">📖</div>
+      <h3>English Language</h3>
+      <p>Grammar, essays, comprehension and summary.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">➗</div>
+      <h3>Mathematics</h3>
+      <p>Formulas, calculations and worked examples.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">🔬</div>
+      <h3>Science</h3>
+      <p>Scientific concepts and discoveries.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">📚</div>
+      <h3>Literature</h3>
+      <p>Poetry, drama, prose and literary devices.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">💻</div>
+      <h3>ICT</h3>
+      <p>Computers, networking and digital skills.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">🌍</div>
+      <h3>Social Studies</h3>
+      <p>Citizenship, society and the environment.</p>
+    </div>
+
+    <div class="card subject-card">
+      <div class="icon">📈</div>
+      <h3>Economics</h3>
+      <p>Markets, money, production and trade.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="container" id="notes">
+  <h2 class="section-title">Sample Study Notes</h2>
+
+  <input
+    class="search"
+    id="noteSearch"
+    type="search"
+    placeholder="Search study notes..."
+    oninput="searchNotes()"
+    aria-label="Search study notes"
+  >
+
+  <div id="noteList">
+
+    <div class="card lesson">
+      <details>
+        <summary>English: What is a noun?</summary>
+        <p>
+          A noun is a word used to name a person, place,
+          animal, thing or idea.
+        </p>
+        <p>
+          Examples: teacher, Ghana, dog, book and honesty.
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>Mathematics: Percentage</summary>
+        <p>
+          A percentage expresses a number as a fraction
+          of 100.
+        </p>
+        <p>
+          Percentage = (Part ÷ Whole) × 100%.
+        </p>
+        <p>
+          Example: 20 out of 50 is
+          (20 ÷ 50) × 100% = 40%.
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>Science: Components of air</summary>
+        <p>
+          Air is a mixture of gases. It contains mainly
+          nitrogen and oxygen, together with argon,
+          carbon dioxide, water vapour and other gases.
+        </p>
+        <p>
+          Oxygen supports respiration and combustion.
+          Carbon dioxide is used by green plants
+          during photosynthesis.
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>Literature: What is a theme?</summary>
+        <p>
+          A theme is a central idea or message explored
+          in a literary work.
+        </p>
+        <p>
+          Examples include love, betrayal, courage,
+          friendship and justice.
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>ICT: What is a computer network?</summary>
+        <p>
+          A computer network is a group of connected
+          devices that can communicate and share
+          information or resources.
+        </p>
+        <p>
+          Examples include a Local Area Network (LAN)
+          and a Wide Area Network (WAN).
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>Social Studies: Citizenship</summary>
+        <p>
+          Citizenship is the legal membership of a
+          country, involving rights and responsibilities
+          recognised by that country.
+        </p>
+      </details>
+    </div>
+
+    <div class="card lesson">
+      <details>
+        <summary>Economics: What is demand?</summary>
+        <p>
+          Demand is the quantity of a good or service
+          consumers are willing and able to buy at
+          different prices during a given period.
+        </p>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+<section class="container" id="quiz">
+  <h2 class="section-title">Test Your Knowledge</h2>
+
+  <div class="quiz-box">
+
+    <p>
+      Answer these questions and tap
+      <strong>Check My Answers</strong> to see your score.
+    </p>
+
+    <form id="quizForm">
+
+      <div class="quiz-question">
+        <p><strong>1. Which word is a noun?</strong></p>
+
+        <label>
+          <input type="radio" name="q1" value="a">
+          Quickly
+        </label>
+
+        <label>
+          <input type="radio" name="q1" value="b">
+          Teacher
+        </label>
+
+        <label>
+          <input type="radio" name="q1" value="c">
+          Beautiful
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>2. What is 25% of 200?</strong></p>
+
+        <label>
+          <input type="radio" name="q2" value="a">
+          25
+        </label>
+
+        <label>
+          <input type="radio" name="q2" value="b">
+          40
+        </label>
+
+        <label>
+          <input type="radio" name="q2" value="c">
+          50
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>3. Which gas supports combustion?</strong></p>
+
+        <label>
+          <input type="radio" name="q3" value="a">
+          Nitrogen
+        </label>
+
+        <label>
+          <input type="radio" name="q3" value="b">
+          Oxygen
+        </label>
+
+        <label>
+          <input type="radio" name="q3" value="c">
+          Carbon dioxide
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>4. What is a theme in literature?</strong></p>
+
+        <label>
+          <input type="radio" name="q4" value="a">
+          The central idea of a literary work
+        </label>
+
+        <label>
+          <input type="radio" name="q4" value="b">
+          The author's address
+        </label>
+
+        <label>
+          <input type="radio" name="q4" value="c">
+          The book's price
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>5. What does ICT stand for?</strong></p>
+
+        <label>
+          <input type="radio" name="q5" value="a">
+          International Computer Training
+        </label>
+
+        <label>
+          <input type="radio" name="q5" value="b">
+          Information and Communication Technology
+        </label>
+
+        <label>
+          <input type="radio" name="q5" value="c">
+          Internet Connection Transfer
+        </label>
+      </div>
+
+      <button class="button" type="submit">
+        Check My Answers
+      </button>
+
+    </form>
+
+    <div
+      class="result"
+      id="quizResult"
+      aria-live="polite"
+    ></div>
+
+  </div>
+</section>
+
+<section class="container" id="resources">
+  <h2 class="section-title">Learning Resources</h2>
+
+  <div class="resources">
+
+    <div class="card">
+      <h3>📝 Revision</h3>
+      <p>
+        Practise questions to strengthen your
+        understanding of school subjects.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📄 Study Materials</h3>
+      <p>
+        More notes and downloadable materials
+        will be added as the platform develops.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎥 Educational Videos</h3>
+      <p>
+        This section can feature helpful educational
+        videos and explanations.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p><strong>📚 Let's Learn</strong></p>
+  <p>Learn Today, Succeed Tomorrow!</p>
+  <p>© 2026 Let's Learn. All rights reserved.</p>
+</footer>
+
+<script>
+function searchSubjects() {
+  const query = document
+    .getElementById("subjectSearch")
+    .value.toLowerCase();
+
+  document.querySelectorAll("#subjectList .subject-card")
+    .forEach(function(card) {
+      card.style.display =
+        card.textContent.toLowerCase().includes(query)
+        ? ""
+        : "none";
+    });
+}
+
+function searchNotes() {
+  const query = document
+    .getElementById("noteSearch")
+    .value.toLowerCase();
+
+  document.querySelectorAll("#noteList .lesson")
+    .forEach(function(card) {
+      card.style.display =
+        card.textContent.toLowerCase().includes(query)
+        ? ""
+        : "none";
+    });
+}
+
+document.getElementById("quizForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const answers = {
+      q1: "b",
+      q2: "c",
+      q3: "b",
+      q4: "a",
+      q5: "b"
+    };
+
+    let score = 0;
+    let answered = 0;
+
+    for (const question in answers) {
+      const selected = document.querySelector(
+        'input[name="' + question + '"]:checked'
+      );
+
+      if (selected) {
+        answered++;
+
+        if (selected.value === answers[question]) {
+          score++;
+        }
+      }
+    }
+
+    const result = document.getElementById("quizResult");
+
+    result.textContent =
+      "You scored " + score + " out of 5. " +
+      "You answered " + answered + " out of 5 questions. " +
+      (score === 5
+        ? "Excellent work!"
+        : "Keep practising and try again!");
+  });
+</script>
+
+</body>
+  </html￼Enter
